@@ -20,6 +20,21 @@ jobs:
           distribution: temurin
           java-version: '17'
           cache: maven
+          
+      - name: Create Maven settings.xml
+        run: |
+          mkdir -p ~/.m2
+          cat > ~/.m2/settings.xml <<EOF
+          <settings>
+              <servers>
+                  <server>
+                      <id>github</id>
+                      <username>${{ secrets.GITHUB_ACTOR }}</username>
+                      <password>${{ secrets.GITHUB_TOKEN }}</password>
+                  </server>
+              </servers>
+          </settings>
+          EOF
 
       - name: Build Accounting Service
         run: mvn clean install -DskipTests
@@ -39,6 +54,21 @@ jobs:
           java-version: '17'
           cache: maven
 
+      - name: Create Maven settings.xml
+        run: |
+          mkdir -p ~/.m2
+          cat > ~/.m2/settings.xml <<EOF
+          <settings>
+              <servers>
+                  <server>
+                      <id>github</id>
+                      <username>${{ secrets.GITHUB_ACTOR }}</username>
+                      <password>${{ secrets.GITHUB_TOKEN }}</password>
+                  </server>
+              </servers>
+          </settings>
+          EOF
+
       - name: Build Asset Management Service
         run: mvn clean install -DskipTests
         working-directory: asset-management-service
@@ -57,6 +87,21 @@ jobs:
           java-version: '17'
           cache: maven
 
+      - name: Create Maven settings.xml
+        run: |
+          mkdir -p ~/.m2
+          cat > ~/.m2/settings.xml <<EOF
+          <settings>
+              <servers>
+                  <server>
+                      <id>github</id>
+                      <username>${{ secrets.GITHUB_ACTOR }}</username>
+                      <password>${{ secrets.GITHUB_TOKEN }}</password>
+                  </server>
+              </servers>
+          </settings>
+          EOF
+
       - name: Build Resource Administration Service
         run: mvn clean install -DskipTests
         working-directory: resource-administration-service
@@ -74,6 +119,21 @@ jobs:
           distribution: temurin
           java-version: '17'
           cache: maven
+
+      - name: Create Maven settings.xml
+        run: |
+          mkdir -p ~/.m2
+          cat > ~/.m2/settings.xml <<EOF
+          <settings>
+              <servers>
+                  <server>
+                      <id>github</id>
+                      <username>${{ secrets.GITHUB_ACTOR }}</username>
+                      <password>${{ secrets.GITHUB_TOKEN }}</password>
+                  </server>
+              </servers>
+          </settings>
+          EOF
 
       - name: Build User Management Service
         run: mvn clean install -DskipTests

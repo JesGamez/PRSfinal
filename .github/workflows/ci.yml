@@ -71,7 +71,7 @@ jobs:
 
       - name: Build and Deploy Accounting Service
         run: mvn clean deploy -DskipTests -s ~/.m2/settings.xml
-        working-directory: accounting-service
+        working-directory: asset-management-service
 
   resource-administration-service:
     name: Build Resource Administration Service
@@ -104,7 +104,7 @@ jobs:
 
       - name: Build and Deploy Accounting Service
         run: mvn clean deploy -DskipTests -s ~/.m2/settings.xml
-        working-directory: accounting-service
+        working-directory: resource-administration-service
 
   user-management-service:
     name: Build User Management Service
@@ -137,5 +137,5 @@ jobs:
 
       - name: Build and Deploy Accounting Service
         run: mvn clean deploy -DskipTests -s ~/.m2/settings.xml
-        working-directory: accounting-service
+        working-directory: user-management-service
 

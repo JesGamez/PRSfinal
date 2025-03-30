@@ -29,15 +29,15 @@ jobs:
               <servers>
                   <server>
                       <id>github</id>
-                      <username>${{ secrets.GITHUB_ACTOR }}</username>
-                      <password>${{ secrets.GITHUB_TOKEN }}</password>
+                      <username>${{secrets.GITHUB_ACTOR}}</username>
+                      <password>${{secrets.GITHUB_TOKEN}}</password>
                   </server>
               </servers>
           </settings>
           EOF
 
-      - name: Build Accounting Service
-        run: mvn clean install -DskipTests
+      - name: Build and Deploy Accounting Service
+        run: mvn clean deploy -DskipTests -s ~/.m2/settings.xml
         working-directory: accounting-service
 
   asset-management-service:
@@ -62,16 +62,16 @@ jobs:
               <servers>
                   <server>
                       <id>github</id>
-                      <username>${{ secrets.GITHUB_ACTOR }}</username>
-                      <password>${{ secrets.GITHUB_TOKEN }}</password>
+                      <username>${{secrets.GITHUB_ACTOR}}</username>
+                      <password>${{secrets.GITHUB_TOKEN}}</password>
                   </server>
               </servers>
           </settings>
           EOF
 
-      - name: Build Asset Management Service
-        run: mvn clean install -DskipTests
-        working-directory: asset-management-service
+      - name: Build and Deploy Accounting Service
+        run: mvn clean deploy -DskipTests -s ~/.m2/settings.xml
+        working-directory: accounting-service
 
   resource-administration-service:
     name: Build Resource Administration Service
@@ -95,16 +95,16 @@ jobs:
               <servers>
                   <server>
                       <id>github</id>
-                      <username>${{ secrets.GITHUB_ACTOR }}</username>
-                      <password>${{ secrets.GITHUB_TOKEN }}</password>
+                      <username>${{secrets.GITHUB_ACTOR}}</username>
+                      <password>${{secrets.GITHUB_TOKEN}}</password>
                   </server>
               </servers>
           </settings>
           EOF
 
-      - name: Build Resource Administration Service
-        run: mvn clean install -DskipTests
-        working-directory: resource-administration-service
+      - name: Build and Deploy Accounting Service
+        run: mvn clean deploy -DskipTests -s ~/.m2/settings.xml
+        working-directory: accounting-service
 
   user-management-service:
     name: Build User Management Service
@@ -128,14 +128,14 @@ jobs:
               <servers>
                   <server>
                       <id>github</id>
-                      <username>${{ secrets.GITHUB_ACTOR }}</username>
-                      <password>${{ secrets.GITHUB_TOKEN }}</password>
+                      <username>${{secrets.GITHUB_ACTOR}}</username>
+                      <password>${{secrets.GITHUB_TOKEN}}</password>
                   </server>
               </servers>
           </settings>
           EOF
 
-      - name: Build User Management Service
-        run: mvn clean install -DskipTests
-        working-directory: user-management-service
+      - name: Build and Deploy Accounting Service
+        run: mvn clean deploy -DskipTests -s ~/.m2/settings.xml
+        working-directory: accounting-service
 

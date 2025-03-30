@@ -1,0 +1,81 @@
+name: CI - Build All Microservices
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  accounting-service:
+    name: Build Accounting Service
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+
+      - name: Build Accounting Service
+        run: mvn clean install -DskipTests
+        working-directory: accounting-service
+
+  asset-management-service:
+    name: Build Asset Management Service
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+
+      - name: Build Asset Management Service
+        run: mvn clean install -DskipTests
+        working-directory: asset-management-service
+
+  resource-administration-service:
+    name: Build Resource Administration Service
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+
+      - name: Build Resource Administration Service
+        run: mvn clean install -DskipTests
+        working-directory: resource-administration-service
+
+  user-management-service:
+    name: Build User Management Service
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+
+      - name: Build User Management Service
+        run: mvn clean install -DskipTests
+        working-directory: user-management-service
+

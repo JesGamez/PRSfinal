@@ -1,0 +1,15 @@
+# Carpetas y archivos de IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Directorio de compilación de Maven
+target/
+
+# Directorio de compilación de Gradle
+build/
+
+# Archivos de configuración locales
+.DS_Store
+*.log
